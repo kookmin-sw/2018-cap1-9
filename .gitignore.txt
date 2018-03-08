@@ -1,0 +1,2 @@
+# ignore all document files in the doc directory
+doc/
