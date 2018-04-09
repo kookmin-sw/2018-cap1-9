@@ -14,9 +14,9 @@ Team : VT
 - 팀장 : 진 예진 (4학년)
 - 팀원 : 최 진영 (4학년), 이 소영 (4학년), 김 도은 (3학년), 왕 서 (4학년)
 
-2) 팀 사진
+2)팀 사진
 ![image](https://github.com/kookmin-sw/2018-cap1-9/blob/master/doc/images/team.jpg)
-3) SNS
+3)SNS
 - 진 예진 : https://www.facebook.com/jinjinyejinjin (페이스북)
 - 최 진영 : https://www.facebook.com/profile.php?id=100006778664098 (페이스북)
 - 이 소영 : https://github.com/daianaludice (깃허브)
@@ -35,6 +35,31 @@ Team : VT
   스마트 미러에 카메라를 달아 사람의 모습을 인식하고 이를 사진이나 동영상을 촬영 가능하게 하여 이후 사용자가 보고싶을 때 스마트미러를 통해 볼 수 있다.
   
 ### 6. 참고자료
-  1)_스마트 미러 repository_ : https://github.com/evancohen/smart-mirror
-  2) _스마트 행거 구상도에 참고한 행거 제품_ : https://goo.gl/nZRV1M
-  3) _기존에 개발된 스마트 미러와 스마트 행거_ : https://goo.gl/wzohuL
+    1) 스마트 미러 repository : https://github.com/evancohen/smart-mirror
+  
+    2) 스마트 행거 구상도에 참고한 행거 제품 : https://goo.gl/nZRV1M
+  
+    3) 기존에 개발된 스마트 미러와 스마트 행거 : https://goo.gl/wzohuL
+    
+
+
+
+# **_English_**
+
+### 1. Project Intro
+The **_'VISION THROUGH'_** project is to create an IOT product that combines a smart mirror and a smart hanger. Finding the clothes I want in the closet and trying to match them in front of the mirror is time consuming and troublesome. Also, if you have many clothes, it is hard to find where you want to wear clothes. It takes a long time to bring several clothes and match them, so you want to have a product that can solve these troubles. . Therefore, it is possible to coordinate clothes even if you do not want to bring the clothes hanging on the hanger, so if you hang clothes on the hanger, clothes are automatically recognized and added to the list in real time. You can match the clothes in the clothes. 
+
+### 3. Team
+Team name VT is an abbreviation of _Vision Through_, which is the abbreviation of project name.
+ _Vision Through_ means that the user can select clothes by checking the clothes on the smart mirror without having to take out clothes individually and match the top and bottom.
+ 
+### 4. How to use
+_Vision Through_ is already deployed in Raspberry pie of smart mirror and smart hanger, so installation method is not necessary when submitting source code.
+I use the touch screen which is connected with the smart mirror when I want to coordinate my clothes to hang out on my hanger and go out. Using the touch screen
+Check the list of clothes I have and select the clothes I want to wear (press the clothes). After wearing the various clothes and choosing clothes to wear, the hanger can be used to move the clothes directly to the front using the motor, and the user can wear clothes without having to look for clothes.
+  
+### 5. Additional development plans
+ 1) **A.I**
+  I can develop an artificial intelligence smart mirror that not only displays my clothes through a smart mirror but also recommends coordination according to weather and season.
+ 2) **Taking pictures and videos**
+  The camera can be placed on a smart mirror to recognize the person's appearance and make it possible to shoot a photograph or a movie, so that the user can view the image through a smart mirror when he / she wants to see it.
