@@ -1,5 +1,8 @@
-﻿# VISION THROUGH
+# VISION THROUGH
 Team : VT
+## ABSTRACT
+The **_'VISION THROUGH'_** project is to create an IOT product that combines a smart mirror and a smart hanger. Finding the clothes what I want in the closet and trying to match them in front of the mirror are time-consuming and troublesome. Also, if you have many clothes, it is hard to find where you want to wear clothes. It takes a long time to bring several clothes and match them, so you want to have a product that can solve these troubles. Therefore, it is possible to coordinate clothes even if you do not want to bring the clothes hanging on the hanger, so if you hang clothes on the hanger, clothes are automatically recognized and added to the list in real time. You can match the clothes in the clothes. 
+
 ### 1. 프로젝트 소개
 **_'VISION THROUGH'_** 프로젝트는 스마트 미러와 스마트 행거를 융합한 IOT제품을 만드는 것이다. 옷장에서 내가 원하는 옷을 찾아서 거울 앞에서 매치해보는 것을 반복하는 것이 시간이 오래걸리고 번거롭다. 또한, 가지고 있는 옷이 많으면 입고싶은 옷이 어디있는지 찾는 것이 힘들고 여러 옷을 가져와서 매치해보는데 시간이 오래걸리기 때문에 이러한 번거로움을 해소해 줄 수 있는 제품이 있었으면 좋겠다고 생각하여 프로젝트를 기획하기에 이르게되었다. 따라서 행거에 걸려있는 옷을 직접 가져와 대보지 않아도 코디를 할 수 있는 IOT 제품으로 행거에 옷을 걸면 자동으로 옷을 인식해 리스트에 실시간으로 추가되고 사용자는 코디를 할 때 옷방에 가지 않고 거울에 서서 옷방에 있는 옷들을 매치해 볼 수 있다. 
 
@@ -40,26 +43,21 @@ Team : VT
     2) 스마트 행거 구상도에 참고한 행거 제품 : https://goo.gl/nZRV1M
   
     3) 기존에 개발된 스마트 미러와 스마트 행거 : https://goo.gl/wzohuL
-    
 
 
+# **_INTRODUCE_**
 
-# **_English_**
-
-### 1. Project Intro
-The **_'VISION THROUGH'_** project is to create an IOT product that combines a smart mirror and a smart hanger. Finding the clothes I want in the closet and trying to match them in front of the mirror is time consuming and troublesome. Also, if you have many clothes, it is hard to find where you want to wear clothes. It takes a long time to bring several clothes and match them, so you want to have a product that can solve these troubles. . Therefore, it is possible to coordinate clothes even if you do not want to bring the clothes hanging on the hanger, so if you hang clothes on the hanger, clothes are automatically recognized and added to the list in real time. You can match the clothes in the clothes. 
-
-### 3. Team
-Team name VT is an abbreviation of _Vision Through_, which is the abbreviation of project name.
+### 1. Team
+Team name VT is an abbreviation of _Vision Through_, which is the abbreviation of the project name.
  _Vision Through_ means that the user can select clothes by checking the clothes on the smart mirror without having to take out clothes individually and match the top and bottom.
  
-### 4. How to use
-_Vision Through_ is already deployed in Raspberry pie of smart mirror and smart hanger, so installation method is not necessary when submitting source code.
-I use the touch screen which is connected with the smart mirror when I want to coordinate my clothes to hang out on my hanger and go out. Using the touch screen
+### 2. How to use
+_Vision Through_ is already deployed in the Raspberry pi of smart mirror and smart hanger, so installation method is not necessary when submitting source code.
+I use the touchscreen which is connected to the smart mirror when I want to coordinate my clothes to hang out on my hanger and go out. Using the touchscreen.
 Check the list of clothes I have and select the clothes I want to wear (press the clothes). After wearing the various clothes and choosing clothes to wear, the hanger can be used to move the clothes directly to the front using the motor, and the user can wear clothes without having to look for clothes.
   
-### 5. Additional development plans
- 1) **A.I**
-  I can develop an artificial intelligence smart mirror that not only displays my clothes through a smart mirror but also recommends coordination according to weather and season.
- 2) **Taking pictures and videos**
-  The camera can be placed on a smart mirror to recognize the person's appearance and make it possible to shoot a photograph or a movie, so that the user can view the image through a smart mirror when he / she wants to see it.
+### 3. Additional development plans
+ #### 1) **A.I**
+  I can develop an artificial intelligence smart mirror that not only displays my clothes in a smart mirror but also recommends coordination according to weather and season.
+ #### 2) **Taking pictures and videos**
+  The camera can be placed on a smart mirror to recognize the person's appearance and make it possible to shoot a photograph or a movie so that the user can view the image through a smart mirror when he / she wants to see it.
