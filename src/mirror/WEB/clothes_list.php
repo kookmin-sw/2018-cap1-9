@@ -1,4 +1,17 @@
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     <!DOCTYPE HTML>
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "1234";
+$dbname = "VT";
+
+// Create connection
+ $conn = mysqli_connect($servername, $username, $password, $dbname);
+ // Check connection
+  if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+?>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     <!DOCTYPE HTML>
 <html>
 	<head>
 		<title>Clothes List</title>
@@ -16,7 +29,13 @@
 
 				<!-- Header -->
 					<header id="header">
-						<h1>TOTAL </h1>
+					<?php
+					$query = 'SELECT count(No) FROM Clothes_info';
+					  $res = mysqli_query($conn,$query);
+	        			  $row1 = $res -> fetch_array();
+	      				$total_num = $row1[0];
+						?>
+						<h1>TOTAL <?php echo"$total_num"; ?> </h1>
 						<nav>
 							<ul>
 								<a href="#top"><li>TOP </li></a>
@@ -30,12 +49,12 @@
 						<article class="thumb">
 							<a href="images/fulls/01.jpg" class="image"><img src="images/thumbs/01.png" alt="" id="top" /></a>
 							<h2>Top 1</h2>
-							<p>Color : Orange Type : Top Texture: -.	<a href="show_smart_mirror_screen.html"><button>CHOOSE</button></a></p>
+							<p>Color : Orange Type : Top Texture: -.	<a href="select_clothe.html"><button>CHOOSE</button></a></p>
 						</article>
 						<article class="thumb">
 							<a href="images/fulls/02.jpg" class="image"><img src="images/thumbs/02.png" alt="" /></a>
 							<h2>Outer</h2>
-							<p>Color : Black Type : Outer Texture: -.	<a href="show_clothe.html"><button>CHOOSE</button></p>
+							<p>Color : Black Type : Outer Texture: -.	<a href="select_clothe.html"><button>CHOOSE</button></p>
 						</article>
 						<article class="thumb">
 							<a href="images/fulls/03.jpg" class="image"><img src="images/thumbs/03.png" alt="" /></a>
