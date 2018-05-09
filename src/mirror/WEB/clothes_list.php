@@ -43,49 +43,24 @@ $dbname = "VT";
 							</ul>
 						</nav>
 					</header>
-
+				 <?php
+          $query2 = 'SELECT No,Color,Kind,Logo,Texture,Picture_Addr FROM Clothes_info';
+          $res2 =  mysqli_query($conn,$query2);
+            ?>
 				<!-- Main -->
 					<div id="main">
-						<article class="thumb">
-							<a href="images/fulls/1.jpg" class="image"><img src="images/thumbs/1.png" alt="" id="top" /></a>
-							<h2>Top 1</h2>
-							<p>Color : Orange Type : Top Texture: -.	<a href="select_clothe.html"><button>CHOOSE</button></a></p>
-						</article>
-						<article class="thumb">
-							<a href="images/fulls/3.jpg" class="image"><img src="images/thumbs/3.png" alt="" /></a>
-							<h2>Outer</h2>
-							<p>Color : Black Type : Outer Texture: -.	<a href="select_clothe.html"><button>CHOOSE</button></p>
-						</article>
-						<article class="thumb">
-							<a href="images/fulls/4.jpg" class="image"><img src="images/thumbs/4.png" alt="" /></a>
-							<h2>Top 3</h2>
-							<p>None</p>
-						</article>
-						<article class="thumb">
-							<a href="images/fulls/6.jpg" class="image"><img src="images/thumbs/6.png" alt="" /></a>
-							<h2>Top 5</h2>
-							<p>None</p>
-						</article>
-						<article class="thumb">
-							<a href="images/fulls/7.jpg" class="image"><img src="images/thumbs/7.png" alt="" /></a>
-							<h2>Top 6</h2>
-							<p>None</p>
-						</article>
-						<article class="thumb">
-							<a href="images/fulls/8.jpg" class="image"><img src="images/thumbs/2.png" alt="" /></a>
-							<h2>Top 7</h2>
-							<p>None</p>
-						</article>
-						<article class="thumb">
-							<a href="images/fulls/9.jpg" class="image"><img src="images/thumbs/8.png" alt="" /></a>
-							<h2>Top8</h2>
-							<p>None</p>
-						</article>
-						<article class="thumb">
-							<a href="images/fulls/11.jpg" class="image"><img src="images/thumbs/11.png" alt="" /></a>
-							<h2>Skirt</h2>
-							<p>None</p>
-						</article>
+	    <?php
+            while ($row2 = $res2->fetch_assoc())
+
+						{
+					 echo "<article class='thumb'>
+                 <a href='images/fulls/".$row2['Picture_Addr'].".jpg' class='image'><img src='images/thumbs/".$row2['Picture_Addr'].".png' alt='' /></a>
+                 <h2>" .$row2['Kind']."</h2>
+                 <p>Color :".$row2['Color']." Type :".$row2['Kind']." Texture : ".$row2['Texture']." <a href='select_clothe.php?Picture_Addr=".$row2['Picture_Addr']."'><button>CHOOSE</button></a></p></article> ";
+
+
+						}
+            ?>
 					</div>
 
 			</div>

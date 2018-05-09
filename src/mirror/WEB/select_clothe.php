@@ -11,6 +11,7 @@ $dbname = "VT";
     die("Connection failed: " . mysqli_connect_error());
 }
 
+$Addr = addslashes($_GET["Picture_Addr"]);
 ?>  
 <!DOCTYPE HTML>
 <html>
@@ -31,7 +32,7 @@ $dbname = "VT";
 						<h1><a href="clothes_list.php"><- BACK </a></h1>
 						<nav>
 							<ul>
-								<li><a href="Insert_DB.php"><button>WEAR</button></a></p></li>
+								<li><a href="Insert_DB.php?Picture_Addr=<? echo"$Addr"; ?>"><button>WEAR</button></a></p></li>
 								
 							</ul>
 						</nav>
@@ -39,7 +40,9 @@ $dbname = "VT";
 
 				<!-- Main -->
 					<div id="main">
-					<img src="images/fulls/1.jpg" class="image" width="device-width" height="device-height" />
+					<?php
+					echo "<img src='images/fulls/".$Addr.".jpg' class='image' width='device-width' height='device-height' />";
+       					   ?>
 					</div>
 			</div>
 </body>
