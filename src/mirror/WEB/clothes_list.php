@@ -38,8 +38,8 @@ $dbname = "VT";
 						<h1>TOTAL <?php echo"$total_num"; ?> </h1>
 						<nav>
 							<ul>
-								<a href="#top"><li>TOP </li></a>
-								<a href="#bottom"><li>BOTTOM </li></a>
+								<li>TOP </li>
+								<li>BOTTOM </li>
 							</ul>
 						</nav>
 					</header>
@@ -47,63 +47,43 @@ $dbname = "VT";
 				<!-- Main -->
 					<div id="main">
 						<article class="thumb">
-							<a href="images/fulls/01.jpg" class="image"><img src="images/thumbs/01.png" alt="" id="top" /></a>
+							<a href="images/fulls/1.jpg" class="image"><img src="images/thumbs/1.png" alt="" id="top" /></a>
 							<h2>Top 1</h2>
 							<p>Color : Orange Type : Top Texture: -.	<a href="select_clothe.html"><button>CHOOSE</button></a></p>
 						</article>
 						<article class="thumb">
-							<a href="images/fulls/02.jpg" class="image"><img src="images/thumbs/02.png" alt="" /></a>
+							<a href="images/fulls/3.jpg" class="image"><img src="images/thumbs/3.png" alt="" /></a>
 							<h2>Outer</h2>
 							<p>Color : Black Type : Outer Texture: -.	<a href="select_clothe.html"><button>CHOOSE</button></p>
 						</article>
 						<article class="thumb">
-							<a href="images/fulls/03.jpg" class="image"><img src="images/thumbs/03.png" alt="" /></a>
-							<h2>Top 2</h2>
-							<p>None</p>
-						</article>
-						<article class="thumb">
-							<a href="images/fulls/04.jpg" class="image"><img src="images/thumbs/04.png" alt="" /></a>
+							<a href="images/fulls/4.jpg" class="image"><img src="images/thumbs/4.png" alt="" /></a>
 							<h2>Top 3</h2>
 							<p>None</p>
 						</article>
 						<article class="thumb">
-							<a href="images/fulls/05.jpg" class="image"><img src="images/thumbs/05.png" alt="" /></a>
-							<h2>Top 4</h2>
-							<p>None</p>
-						</article>
-						<article class="thumb">
-							<a href="images/fulls/06.jpg" class="image"><img src="images/thumbs/06.png" alt="" /></a>
+							<a href="images/fulls/6.jpg" class="image"><img src="images/thumbs/6.png" alt="" /></a>
 							<h2>Top 5</h2>
 							<p>None</p>
 						</article>
 						<article class="thumb">
-							<a href="images/fulls/07.jpg" class="image"><img src="images/thumbs/07.png" alt="" /></a>
+							<a href="images/fulls/7.jpg" class="image"><img src="images/thumbs/7.png" alt="" /></a>
 							<h2>Top 6</h2>
 							<p>None</p>
 						</article>
 						<article class="thumb">
-							<a href="images/fulls/08.jpg" class="image"><img src="images/thumbs/02.png" alt="" /></a>
+							<a href="images/fulls/8.jpg" class="image"><img src="images/thumbs/2.png" alt="" /></a>
 							<h2>Top 7</h2>
 							<p>None</p>
 						</article>
 						<article class="thumb">
-							<a href="images/fulls/09.jpg" class="image"><img src="images/thumbs/08.png" alt="" /></a>
+							<a href="images/fulls/9.jpg" class="image"><img src="images/thumbs/8.png" alt="" /></a>
 							<h2>Top8</h2>
 							<p>None</p>
 						</article>
 						<article class="thumb">
-							<a href="images/fulls/10.jpg" class="image"><img src="images/thumbs/09.png" alt="" /></a>
-							<h2>Pants</h2>
-							<p>None</p>
-						</article>
-						<article class="thumb">
-							<a href="images/fulls/11.jpg" class="image"><img src="images/thumbs/10.png" alt="" /></a>
+							<a href="images/fulls/11.jpg" class="image"><img src="images/thumbs/11.png" alt="" /></a>
 							<h2>Skirt</h2>
-							<p>None</p>
-						</article>
-						<article class="thumb">
-							<a href="images/fulls/12.jpg" class="image"><img src="images/thumbs/11.png" alt="" id="bottom" /></a>
-							<h2>Outer</h2>
 							<p>None</p>
 						</article>
 					</div>

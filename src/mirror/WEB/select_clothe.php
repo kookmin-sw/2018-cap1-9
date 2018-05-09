@@ -31,7 +31,7 @@ $dbname = "VT";
 						<h1><a href="clothes_list.php"><- BACK </a></h1>
 						<nav>
 							<ul>
-								<li><a href="select_clothe.php"><button>WEAR</button></a></p></li>
+								<li><a href="Insert_DB.php"><button>WEAR</button></a></p></li>
 								
 							</ul>
 						</nav>
@@ -39,7 +39,7 @@ $dbname = "VT";
 
 				<!-- Main -->
 					<div id="main">
-					<img src="images/fulls/01.jpg" class="image" width="device-width" height="device-height" />
+					<img src="images/fulls/1.jpg" class="image" width="device-width" height="device-height" />
 					</div>
 			</div>
 </body>
