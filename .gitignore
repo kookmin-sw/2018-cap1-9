@@ -3,3 +3,4 @@
 doc/
 
 src/mirror/server-venv
+src/mirror/__pycache__
