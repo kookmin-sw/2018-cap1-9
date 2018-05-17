@@ -11,7 +11,7 @@ $dbname = "VT";
     die("Connection failed: " . mysqli_connect_error());
 }
 
-?>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     <!DOCTYPE HTML>
+?>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      <!DOCTYPE HTML>
 <html>
 	<head>
 		<title>Clothes List</title>
@@ -30,34 +30,42 @@ $dbname = "VT";
 				<!-- Header -->
 					<header id="header">
 					<?php
-					$query = 'SELECT count(No) FROM Clothes_info';
+					$query = 'SELECT count(No) FROM Clothes_Info';
 					  $res = mysqli_query($conn,$query);
 	        			  $row1 = $res -> fetch_array();
 	      				$total_num = $row1[0];
-						?>
+                						?>
 						<h1>TOTAL <?php echo"$total_num"; ?> </h1>
-						<nav>
+            <nav>
 							<ul>
-								<li>TOP </li>
-								<li>BOTTOM </li>
+								<li><a href="#top">TOP</a> <a href="#bottom">BOTTOM</a> </li>
 							</ul>
-						</nav>
+            </nav>
 					</header>
-				 <?php
+          <?php
           $query2 = 'SELECT No,Color,Kind,Logo,Texture,Picture_Addr FROM Clothes_info';
           $res2 =  mysqli_query($conn,$query2);
             ?>
 				<!-- Main -->
 					<div id="main">
-	    <?php
+            <?php
             while ($row2 = $res2->fetch_assoc())
 
 						{
 					 echo "<article class='thumb'>
-                 <a href='images/fulls/".$row2['Picture_Addr'].".jpg' class='image'><img src='images/thumbs/".$row2['Picture_Addr'].".png' alt='' /></a>
-                 <h2>" .$row2['Kind']."</h2>
-                 <p>Color :".$row2['Color']." Type :".$row2['Kind']." Texture : ".$row2['Texture']." <a href='select_clothe.php?Picture_Addr=".$row2['Picture_Addr']."'><button>CHOOSE</button></a></p></article> ";
-
+                 <a href='images/fulls/".$row2['Picture_Addr'].".jpg' class='image'";
+                 if ($row2['No'] == 1){
+                   echo"id='#top'";
+                 }
+                 elseif($row2['No'] == $total_num) {
+                   echo"id='#bottom'";
+                 }
+                   echo"><img src='images/thumbs/".$row2['Picture_Addr'].".png' alt='' /></a>
+                 <h2>" .$row2['Kind']."</h2>";
+                 if($row['Texture'] == ''){
+                   $row2['Texture'] = '-';
+                 }
+                 echo"<p> Color :".$row2['Color']."  Type :".$row2['Kind']."  Texture : ".$row2['Texture']."<a href='select_clothe.php?No=".$row2['No']."&Picture_Addr=".$row2['Picture_Addr']."' style='padding-left:30%'><button>CHOOSE</button></a></p></article> ";
 
 						}
             ?>
@@ -74,4 +82,4 @@ $dbname = "VT";
 			<script src="assets/js/main.js"></script>
 
 	</body>
-</html>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+</html>
