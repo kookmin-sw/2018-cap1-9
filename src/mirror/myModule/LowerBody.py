@@ -38,5 +38,6 @@ def findBody():
 
             cv2.imshow('camera-0', img)
     cap.release()
-    out.release()
     cv2.destroyAllWindows()
+
+findBody()
