@@ -13,6 +13,12 @@ $dbname = "VT";
 
 $No = addslashes($_GET["No"]);
 $Addr = addslashes($_GET["Picture_Addr"]);
+
+$myfile = fopen("show_mirror.txt", "w") or die("Unable to open file!");
+$log = "".$Addr."\n";
+fwrite($myfile, $log);
+fclose($myfile);
+
 ?>
 <!DOCTYPE HTML>
 <html>

@@ -25,6 +25,11 @@ $(document).ready(function(){
     });
 });
 </script>
+<?
+$myfile = fopen("show_mirror.txt", "r") or die("Unable to open file!");
+$addr = fgets($myfile);
+fclose($myfile);
+?>
 </head>
 <body>
   <table>
@@ -34,7 +39,7 @@ $(document).ready(function(){
   $time =date("Y-M-d h:m:s");
   echo "<p>$time</p>";
   ?>
-<p><img src="images/thumbs/1.png" alt=""/></p>
+<p><img src="images/thumbs/<? echo $addr; ?>.png" alt=""/></p>
 <script type="text/javascript" src="getPrameter.js">
 </body>
 </html>
