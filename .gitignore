@@ -1,3 +1,10 @@
 #documents
 
 doc/
+
+src/mirror/server-venv
+*/__pycache__
+
+#확장자
+*.pyc
+*.swp
