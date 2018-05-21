@@ -16,10 +16,10 @@ def findBody():
         if not ret:
             print('no camera connected!')
         else:
-            upperPath = "haarcascade_upperbody.xml"
+            upperPath = "/home/wink/Documents/2018-cap1-9/src/mirror/myModule/haarcascade_upperbody.xml"
             imageGray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
             upperCascade = cv2.CascadeClassifier(upperPath)
-            upperRect = upperCascade.detectMultiScale(imageGray, scaleFactor=3.5, minNeighbors=1, minSize=(1,1)) 
+            upperRect = upperCascade.detectMultiScale(imageGray, scaleFactor=1.3, minNeighbors=1, minSize=(1,1)) 
             
             #return the finded object list
             if len(upperRect) > 0:
@@ -40,3 +40,5 @@ def findBody():
     cap.release()
     out.release()
     cv2.destroyAllWindows()
+
+findBody()
