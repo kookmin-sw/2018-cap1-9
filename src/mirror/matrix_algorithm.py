@@ -102,19 +102,21 @@ for i in rows:
         list1 = [i[0], changeColorDown(i[1]), changeKindDown(i[4])]
         pantsList.append(list1)
 j = 0
+select = int(chooseCloth)
 if(int(chooseCloth) <= 9):
     for i in pantsList:
-        sum1 = summ2(topList[int(chooseCloth)], i)
+        sum1 = summ2(topList[select], i)
         pantsList[j].append(sum1)
         j += 1
-    newlist = sorted(pantsList, key=lambda x:x[3])
+    newlist = sorted(pantsList, key=lambda x:x[3],reverse=True)
 else:
     for i in topList:
-        sum1 = summ2(i, pantsList[int[chooseCloth]])
+        sum1 = summ2(i, pantsList[select-10])
         topList[j].append(sum1)
         j += 1
-    newlist = sorted(pantsList, reverse = True, key=lambda x: x[4])
+    newlist = sorted(topList,  key=lambda x: x[3],reverse=True)
 
-other = sorted(newlist,reverse=False)
-for i in other:
-    print(i[0])
+print(newlist)
+for i in newlist:
+    if(i[3]>=5):
+        print(i[0])
