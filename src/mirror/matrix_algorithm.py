@@ -45,6 +45,20 @@ def changeColorUp(color):
     else:
         return 9
 
+def changeColorDonw(color):
+    if(color == "Dark Blue"):
+        return 0
+    elif (color == "Light Blue"):
+        return 1
+    elif (color == "Beige"):
+        return 2
+    elif (color == "Khaki" | color == "Charcoal"):
+        return 3
+    elif (color == "Black"):
+        return 4
+    else:
+        return 5
+
 
 chooseCloth = input("어떤 옷을 선택하시겠습니까? : ")
 l1 = [[1, 6], [2, 5], [0, 3], [3, 7]]
