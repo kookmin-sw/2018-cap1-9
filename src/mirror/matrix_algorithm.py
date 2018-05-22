@@ -19,11 +19,11 @@ m2 = [[3, 4, 4, 3, 1, 4, 4, 3, 2,2], [4, 2, 1, 4, 3, 4, 3, 3, 2,2], [3, 3, 2,	2,
 
 
 def summ2(list1, list2):
-    a = list1[0]
-    b = list1[1]
-    a1 = list2[0]
-    b1 = list2[1]
-    return m1[a1][a] + m2[b1][b]
+    a = list1[1]
+    b = list1[2]
+    a1 = list2[1]
+    b1 = list2[2]
+    return m2[a1][a] + m1[b1][b]
 
 def changeColorUp(color):
     if(color == "Green"):
@@ -89,23 +89,32 @@ chooseCloth = input("어떤 옷을 선택하시겠습니까? : ")
 l1 = [[1, 6], [2, 5], [0, 3], [3, 7]]
 l2 = [[0, 3], [0, 4], [1, 4], [3, 4], [4, 3], [2, 2]]
 
-select = l1[chooseCloth]
 list3 = []
-'''
-topList = {}
-pantsList = {}
 
-for i in rows[0]:
+topList = []
+pantsList = []
+
+for i in rows:
     if(i[0] <= 9):
-        topList[i[0]] = [changeColorUp(i[1]),i[4]]
-'''
-if(chooseCloth < =9):
-    for i in l2:
-        sum1 = summ2(select, i)
-        list3.append(sum1)
+        list1 = [i[0], changeColorUp(i[1]), changeKindUp(i[4])]
+        topList.append(list1)
+    else:
+        list1 = [i[0], changeColorDown(i[1]), changeKindDown(i[4])]
+        pantsList.append(list1)
+j = 0
+if(int(chooseCloth) <= 9):
+    for i in pantsList:
+        sum1 = summ2(topList[int(chooseCloth)], i)
+        pantsList[j].append(sum1)
+        j += 1
+    newlist = sorted(pantsList, key=lambda x:x[3])
 else:
-    for i in l1:
-        sum1 = summ2(select, i)
-        list3.append(sum1)
+    for i in topList:
+        sum1 = summ2(i, pantsList[int[chooseCloth]])
+        topList[j].append(sum1)
+        j += 1
+    newlist = sorted(pantsList, reverse = True, key=lambda x: x[4])
 
-print(list3)
+other = sorted(newlist,reverse=False)
+for i in other:
+    print(i[0])
