@@ -40,7 +40,7 @@ def changeColorUp(color):
         return 5
     elif (color == "Black"):
         return 6
-    elif (color == "grey"):
+    elif (color == "Grey"):
         return 7
     else:
         return 9
