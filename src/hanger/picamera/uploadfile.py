@@ -2,8 +2,8 @@ import sys, os, glob
 from boto.s3.connection import S3Connection
 from boto.s3.key import Key
 
-AWS_ACCESS = 'AKIAI6RCJX5WEYMBNMVA'
-AWS_SECRET = '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'
+AWS_ACCESS = ''
+AWS_SECRET = ''
 
 conn = S3Connection(AWS_ACCESS, AWS_SECRET)
 bucket = conn.get_bucket('clothes-image')
