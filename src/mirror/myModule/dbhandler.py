@@ -1,4 +1,3 @@
-from flask_mysqldb import MySQL
 import MySQLdb as db
 
 def connection(HOST, PORT, USER, PASSWORD, DB):
@@ -8,22 +7,26 @@ def connection(HOST, PORT, USER, PASSWORD, DB):
         cur = conn.cursor()
     except Exception as e:
         print(e)
-    return cur
+    return conn, cur
 
-def updateUpper(cursor, dict):
+def updateUpper(conn, cursor, dict):
+    print("Inside update upper", end="")
+    print(dict)
     cursor.execute("""
         UPDATE Coordinate
         SET x=%s, y=%s, width=%s, height=%s
         WHERE position='upper'
     """, (dict['x'], dict['y'], dict['w'], dict['h']))
+    conn.commit()
     return 'update upper column done'
 
-def updateLower(cursor, dict):
+def updateLower(conn, cursor, dict):
     cursor.execute("""
         UPDATE Coordinate
         SET x=%s, y=%s, width=%s, height=%s
         WHERE position='lower'
     """, (dict['x'], dict['y'], dict['w'], dict['h']))
+    conn.commit()
     return 'update lower column done'
 
 def selectAll(cursor):
