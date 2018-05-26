@@ -14,10 +14,11 @@ $dbname = "VT";
 $No = addslashes($_GET["No"]);
 $Addr = addslashes($_GET["Picture_Addr"]);
 
-$myfile = fopen("show_mirror.txt", "w") or die("Unable to open file!");
-$log = "".$Addr."\n";
-fwrite($myfile, $log);
-fclose($myfile);
+$sql = "UPDATE Coordinate SET show_addr = $Addr WHERE position = 'upper'";
+if (mysqli_query($conn,$sql)){
+  }
+  else{ echo "Error: " .$sql . "<br>" . mysqli_error($conn);
+  }
 
 ?>
 <!DOCTYPE HTML>
@@ -29,7 +30,7 @@ fclose($myfile);
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.2.3.min.js"></script>
 </head>
 <body>
 			<div id="wrapper">
@@ -52,5 +53,6 @@ fclose($myfile);
           ?>
 					</div>
 			</div>
+      <script src="getParameter.js"></script>
 </body>
 <html>
