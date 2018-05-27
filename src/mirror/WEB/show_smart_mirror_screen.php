@@ -14,9 +14,12 @@ $dbname = "VT";
 $query2 = "SELECT x,y,height,width,show_addr FROM Coordinate where position='upper'";
 $res2 =  mysqli_query($conn,$query2);
 $row2 = mysqli_fetch_array($res2);
+$query = "SELECT x,y,height,width,show_addr FROM Coordinate where position='lower'";
+$res =  mysqli_query($conn,$query);
+$row = mysqli_fetch_array($res);
 
-$addr =  $row2['show_addr'];
-
+$addr1 = $row2['show_addr'];
+$addr2 = $row['show_addr']
 ?>
 
 <!DOCTYPE html>

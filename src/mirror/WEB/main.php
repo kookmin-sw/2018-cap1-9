@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 $servername = "localhost";
 $username = "root";
 $password = "autoset";
@@ -13,6 +13,19 @@ $dbname = "vt";
 
 $query2 = 'SELECT Picture_Addr FROM Clothes_info';
 $res2 =  mysqli_query($conn,$query2);
+
+
+$sql = "UPDATE Coordinate SET show_addr = NULL WHERE position = 'upper'";
+if (mysqli_query($conn,$sql)){
+  }
+  else{ echo "Error: " .$sql . "<br>" . mysqli_error($conn);
+  }
+$sql2 = "UPDATE Coordinate SET show_addr = NULL WHERE position = 'lower'";
+  if (mysqli_query($conn,$sql2)){
+    }
+    else{ echo "Error: " .$sql2 . "<br>" . mysqli_error($conn);
+    }
+
 
 
 
