@@ -7,12 +7,14 @@ db = pymysql.connect(host="34.225.233.100",
                      db="VT",
                      port = 3306)
 
-curs = db.cursor()
-
-sql = "select * from Clothes_Info"
-curs.execute(sql)
-
-rows = curs.fetchall()
+curs1 = db.cursor()
+curs2 = db.cursor()
+sql1 = "select * from Clothes_Info"
+sql2= "select * from Coordinate"
+curs1.execute(sql1)
+curs2.execute(sql2)
+rows = curs1.fetchall()
+selectClothe = curs2.fetchall()
 
 m1 = [[1, 4, 1, 1,2], [4, 3, 3, 3,2], [3, 4, 2, 1,2], [4, 1, 3, 4,2], [2, 3, 2, 1,2],[2,2,2,2,2]]
 m2 = [[3, 4, 4, 3, 1, 4, 4, 3, 2,2], [4, 2, 1, 4, 3, 4, 3, 3, 2,2], [3, 3, 2,	2, 4, 4, 2,	3, 1,2],
@@ -86,7 +88,12 @@ def changeKindDown(Kind):
     else:
         return 5
 
-chooseCloth = int(sys.argv[1])
+chooseCloth = 0
+
+if(selectClothe[0][5] == None):
+    chooseCloth = selectClothe[1][5]
+else:
+    chooseCloth = selectClothe[0][5]
 
 list3 = []
 
@@ -95,10 +102,10 @@ pantsList = []
 
 for i in rows:
     if(i[0] <= 9):
-        list1 = [i[0], changeColorUp(i[1]), changeKindUp(i[4])]
+        list1 = [i[0], changeColorUp(i[1]), changeKindUp(i[2]), i[3]]
         topList.append(list1)
     else:
-        list1 = [i[0], changeColorDown(i[1]), changeKindDown(i[4])]
+        list1 = [i[0], changeColorDown(i[1]), changeKindDown(i[2]), i[3]]
         pantsList.append(list1)
 j = 0
 select = int(chooseCloth)
@@ -107,14 +114,14 @@ if(int(chooseCloth) <= 9):
         sum1 = summ2(topList[select], i)
         pantsList[j].append(sum1)
         j += 1
-    newlist = sorted(pantsList, key=lambda x:x[3],reverse=True)
+    newlist = sorted(pantsList, key=lambda x:x[4],reverse=True)
 else:
     for i in topList:
         sum1 = summ2(i, pantsList[select-10])
         topList[j].append(sum1)
         j += 1
-    newlist = sorted(topList,  key=lambda x: x[3],reverse=True)
+    newlist = sorted(topList,  key=lambda x: x[4],reverse=True)
 f = open("list.txt", 'w')
 for i in newlist:
-    if(i[3]>=5):
-        f.write(i[0])
+    if(i[4]>=5):
+        f.write(str(i[3])+'\n')
