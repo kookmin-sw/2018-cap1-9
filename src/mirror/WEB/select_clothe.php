@@ -14,11 +14,21 @@ $dbname = "VT";
 $No = addslashes($_GET["No"]);
 $Addr = addslashes($_GET["Picture_Addr"]);
 
+
+if($No == 1 || $No == 2){
 $sql = "UPDATE Coordinate SET show_addr = $Addr WHERE position = 'upper'";
 if (mysqli_query($conn,$sql)){
   }
   else{ echo "Error: " .$sql . "<br>" . mysqli_error($conn);
   }
+}
+if($No == 10 || $No == 11){
+  $sql = "UPDATE Coordinate SET show_addr = $Addr WHERE position = 'lower'";
+  if (mysqli_query($conn,$sql)){
+    }
+    else{ echo "Error: " .$sql . "<br>" . mysqli_error($conn);
+    }
+}
 
 ?>
 <!DOCTYPE HTML>
