@@ -5,6 +5,9 @@ doc/
 src/mirror/server-venv
 */__pycache__
 
+# logging file
+src/mirror/nohup.out
+
 #확장자
 *.pyc
 *.swp

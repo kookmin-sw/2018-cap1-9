@@ -52,9 +52,7 @@ def findBody():
                 for x,y,w,h in lowerRect:
                     print("lower: %d, %d, %d, %d"%(x,y,w,h))
                     cv2.rectangle(img, (x,y), (x+w,y+h), (0,255,0),2) #green box 
-                    print("lowerRect: ", end="")
                     upperRect = upperCascade.detectMultiScale(imageGray, scaleFactor=1.3, minNeighbors=1, minSize=(1,1))
-                    print("upperRect: ", end="")
                     temp.append({'h':h,'w':w,'y':y,'x':x})
                     for lx,ly,lw,lh in upperRect:
                         print("upper: %d, %d, %d, %d"%(lx,ly,lw,lh))
@@ -62,9 +60,7 @@ def findBody():
                         temp2.append({'h':lh,'w':lw,'y':ly,'x':lx})
                 out['lower'] = temp
                 out['upper'] = temp2
-                print("lower: ", end= "")
                 print(out['lower'])
-                print("upper: ", end="")
                 print(out['upper'])
                 logging.info(json.dumps(out, cls=MyEncoder))
 

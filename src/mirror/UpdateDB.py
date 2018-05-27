@@ -2,10 +2,10 @@ import sys
 sys.path.append("myModule")
 import threading
 import simplejson
-import DetectBody
 import json
 import dbhandler as db
 import subprocess
+from multiprocessing import Process, Queue
 
 
 HOST = "34.225.233.100"
@@ -14,6 +14,13 @@ USER = "root"
 PASSWORD = "1234"
 DB = "VT"
 table = 'Coordinate'
+
+
+try:
+    conn, cur = db.connection(HOST, PORT, USER, PASSWORD, DB)
+except Exception as e:
+    print(e)
+
 
 coordi = {}
 def get():
@@ -38,20 +45,20 @@ def get():
         print(ret)
         return ret
 
-thread_u = threading.Thread(target=DetectBody.findBody())
-thread_u.start()
 
-try:
-    conn, cur = db.connection(HOST, PORT, USER, PASSWORD, DB)
-except Exception as e:
-    print(e)
+def update(conn, cur):
+    while(True):
+        print("-----------------rhtrhtr ------------------")
+        coordi = get()
+        print("return of coordi")
+        print(coordi)
 
-    coordi = get()
+        try:
+            for upper in coordi['upper']:
+                print(db.updateUpper(conn, cur, upper))
+            for lower in coordi['lower']:
+                print(db.updateLower(conn, cur, lower))
+        except KeyError:
+            print("KeyError")
 
-try:
-    for upper in coordi['upper']:
-        print(db.updateUpper(conn, cur, upper))
-    for lower in coordi['lower']:
-        print(db.updateLower(conn, cur, lower))
-except KeyError:
-    print("KeyError")
+update(conn, cur)
