@@ -19,7 +19,8 @@ if (mysqli_query($conn,$sql)){
   }
   else{ echo "Error: " .$sql . "<br>" . mysqli_error($conn);
   }
-  exec("python matrix_algorithm.py $No")
+
+exec("python matrix_algorithm.py $No")
 ?>
 <!DOCTYPE HTML>
 <html>
