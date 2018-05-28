@@ -48,10 +48,7 @@ def get():
 
 def update(conn, cur):
     while(True):
-        print("-----------------rhtrhtr ------------------")
         coordi = get()
-        print("return of coordi")
-        print(coordi)
 
         try:
             for upper in coordi['upper']:
