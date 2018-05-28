@@ -14,21 +14,26 @@ $dbname = "VT";
 $No = addslashes($_GET["No"]);
 $Addr = addslashes($_GET["Picture_Addr"]);
 
+$query = "SELECT position FROM Clothes_Info where No = $No " ;
+$res =  mysqli_query($conn,$query);
+$row = $res -> fetch_array();
+$position = $row[0];
 
-if($No == 1 || $No == 2){
-$sql = "UPDATE Coordinate SET show_addr = $Addr WHERE position = 'upper'";
+if($position == 'upper'){
+ $sql = "UPDATE Coordinate SET show_addr = $Addr WHERE position = 'upper'";
 if (mysqli_query($conn,$sql)){
   }
   else{ echo "Error: " .$sql . "<br>" . mysqli_error($conn);
   }
 }
-if($No == 10 || $No == 11){
+if($position == 'lower'){
   $sql = "UPDATE Coordinate SET show_addr = $Addr WHERE position = 'lower'";
   if (mysqli_query($conn,$sql)){
     }
     else{ echo "Error: " .$sql . "<br>" . mysqli_error($conn);
     }
 }
+
 
 ?>
 <!DOCTYPE HTML>
