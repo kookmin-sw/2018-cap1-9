@@ -34,6 +34,9 @@ if($position == 'lower'){
     }
 }
 
+exec("python matrix_algorithm.py");
+
+
 
 ?>
 <!DOCTYPE HTML>
