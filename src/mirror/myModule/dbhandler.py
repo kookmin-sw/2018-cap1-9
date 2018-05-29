@@ -10,14 +10,13 @@ def connection(HOST, PORT, USER, PASSWORD, DB):
     return conn, cur
 
 def updateUpper(conn, cursor, dict):
-    print("Inside update upper", end="")
-    print(dict)
     cursor.execute("""
         UPDATE Coordinate
         SET x=%s, y=%s, width=%s, height=%s
         WHERE position='upper'
     """, (dict['x'], dict['y'], dict['w'], dict['h']))
     conn.commit()
+    print('upper coordinates update')
     return 'update upper column done'
 
 def updateLower(conn, cursor, dict):
@@ -27,6 +26,7 @@ def updateLower(conn, cursor, dict):
         WHERE position='lower'
     """, (dict['x'], dict['y'], dict['w'], dict['h']))
     conn.commit()
+    print('lower coordinates update')
     return 'update lower column done'
 
 def selectAll(cursor):
