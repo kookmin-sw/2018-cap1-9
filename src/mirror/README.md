@@ -1,35 +1,19 @@
-#MIRROR README
+# MIRROR README
 
-이 디렉토리에 있는 코드를 실행시켜보고 싶다면
+### 코드 실행방법
 
-`$ pip install -r requirements.txt`
+실행환경 Ubuntu 16.04
 
-위 명령어로 필요한 라이브러리를 다운받는다.
+필요 패키지 설치방법
 
+run `$ pip install -r requirements.txt`
 
-#virtualenv 실행을 위한 메모
+---
+##### 서비스 시작
+run `$ sh start_service.sh`
+*main.py*와 *UpdateDB.py*코드가 실행되며 *nohup.out*파일에 있는 로그가 터미널에서 보여지게 됩니다.
 
+##### 서비스 종료
+run`$ sh stop_service.sh`
 
-####Python3 virtualenv
-
-`$ . server-venv/bin/activate`
-
-
-####Run Flask server
-`$ flask run --host=0.0.0.0`
-
-
-####Directory
-/mirror
-/mirror/server-venv/
-/mirror/myModule/
-/mirror/app.py
-
-
-
-###Extend
-
-#### Flask DEBUG환경 활성화
-`$ export FLASK_ENV=development`
-`$ export FLASK_ENV=development`
-
+실행중인 프로세스를 종료합니다.
