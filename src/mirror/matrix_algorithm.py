@@ -41,9 +41,9 @@ def changeColorUp(color):
         return 4
     elif (color == "White"):
         return 5
-    elif (color == "Black"):
+    elif (color == "Black" | color =='black'):
         return 6
-    elif (color == "Grey"):
+    elif (color == "Grey" | color == "darkgray" | color == "darkslategray" | color =="dimgrey"):
         return 7
     else:
         return 9
