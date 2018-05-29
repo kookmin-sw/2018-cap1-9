@@ -41,9 +41,9 @@ def changeColorUp(color):
         return 4
     elif (color == "White"):
         return 5
-    elif (color == "Black" | color =='black'):
+    elif (color == "Black" or color =='black'):
         return 6
-    elif (color == "Grey" | color == "darkgray" | color == "darkslategray" | color =="dimgrey"):
+    elif (color == "Grey" or color == "darkgray" or color == "darkslategray" or color =="dimgrey"):
         return 7
     else:
         return 9
@@ -67,7 +67,7 @@ def changeColorDown(color):
         return 1
     elif (color == "Beige"):
         return 2
-    elif (color == "Khaki" | color == "Charcoal"):
+    elif (color == "Khaki" or color == "Charcoal"):
         return 3
     elif (color == "Black"):
         return 4
@@ -89,8 +89,7 @@ def changeKindDown(Kind):
         return 5
 
 chooseCloth = 0
-
-if(selectClothe[0][5] == None):
+if(selectClothe[0][5] == None or selectClothe[0][5] == "black"):
     chooseCloth = selectClothe[1][5]
 else:
     chooseCloth = selectClothe[0][5]
