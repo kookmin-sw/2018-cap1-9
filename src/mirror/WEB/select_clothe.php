@@ -33,8 +33,8 @@ if($position == 'lower'){
     else{ echo "Error: " .$sql . "<br>" . mysqli_error($conn);
     }
 }
-exec("python matrix_algorithm.py");
 
+exec("python matrix_algorithm.py");
 
 $que = "SELECT show_addr FROM Coordinate where position='upper'" ;
 $res3 =  mysqli_query($conn,$que);
@@ -47,21 +47,21 @@ $row4 =  mysqli_fetch_array($res4);
 $lower_addr = $row4[0];
 
 ?>
-
 <!DOCTYPE HTML>
 <html>
 <head>
  <title>Select Clothe</title>
      		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="assets/css/main.css" />
+
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
     <script type="text/javascript" src="http://code.jquery.com/jquery-2.2.3.min.js"></script>
-<style>
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <style>
     .button_css{
      font-family: Arial, Helvetica, sans-serif;
-     font-size: 14px;
+     font-size: 17px;
      color: #ffffff;
      padding: 2px 20px;
      background: -moz-linear-gradient(
@@ -85,24 +85,23 @@ $lower_addr = $row4[0];
      text-shadow:
        0px -1px 0px rgba(000,000,000,0.4),
        0px 1px 0px rgba(255,255,255,0.3);
-    margin-left: 50%;
-    margin-top : 6%;
+    margin-left: 45%;
+    margin-top : 10%;
+    width: 15%;
+    position:fixed;
     }
-    #choose:active {
-    color :blue;
-}
     #cancle{
 
     }
     </style>
 </head>
-<body style='background-color:white'>
+<body style="background-color: white">
 			<div id="wrapper">
 
 				<!-- Header -->
 					<header id="header" style="background-image:url(images/배경.png)" >
 						<h1><a href="clothes_list.php" style='color:black'><- clothes list </a></h1>
-            <span style='color:white; font-size:130%; margin-left:25%'> 현재 선택한 옷입니다. 고정하려면 버튼을 눌러주세요</span>
+            <span style='color:white; font-size:130%; margin-left:25%'> 현재 선택한 옷입니다. 선택을 취소하려면 취소버튼을 눌러주세요.</span>
 						<nav>
 							<ul>
 								<li><a href="Insert_DB.php?No=<? echo"$No";?>"><button>WEAR</button></a></p></li>
@@ -119,17 +118,15 @@ $lower_addr = $row4[0];
           ?>
 
 					</div>
-          <button class='button_css' id="choose" onclick="choose()">상의 고정</button>
-          <button class='button_css' id="cancle">상의 고정 취소</button>
-          <button class='button_css' id="choose" onclick="choose()">하의 고정</button>
-          <button class='button_css' id="cancle">상의 고정 취소</button>
+          <button class='button_css' id="cancle"  onclick="choose()">상의 취소</button>
+          <button class='button_css' id="cancle"  onclick="choose()" style='margin-top:30%;'>하의 취소</button>
 
-          <div style='position:fixed;margin-left:80%; background-color:black; margin-top:-37%; width:33%'>
+          <div style='position:fixed;margin-left:80%; background-color:black; width:35%; height:95%;'>
             <?php $fopen = fopen("list.txt", "r"); $list_1 = fgets($fopen); $list_2 = fgets($fopen); $list_3 = fgets($fopen); fclose($fopen);  ?>
-            <div>코디 추천</div>
-            <div style="color:white; font-size:140%">1순위<img src='images/thumbs/<? echo $list_1; ?>.png' width='40%'></div>
-            <div style="color:white; font-size:140%">2순위<img src='images/thumbs/<? echo $list_2; ?>.png' width='40%'></div>
-            <div style="color:white; font-size:140%">3순위<img src='images/thumbs/<? echo $list_3; ?>.png' width='40%'></div>
+            <div style="color:white; font-size:150%;margin-left:2%;">코디 추천</div>
+            <div style="color:white; font-size:120%;margin-left:2%;">1순위<img src='images/thumbs/<? echo $list_1; ?>.png' width='35%' height:'25%' ></div>
+            <div style="color:white; font-size:120%;margin-left:2%;">2순위<img src='images/thumbs/<? echo $list_2; ?>.png' width='35%' height:'25%'></div>
+            <div style="color:white; font-size:120%;margin-left:2%;">3순위<img src='images/thumbs/<? echo $list_3; ?>.png' width='35%' height:'25%'></div>
           </div>
 <script>
 function choose() {
