@@ -4,7 +4,7 @@
 
 `$ pip install -r requirements.txt`
 
-위 명령어로 필요한 라이브러리를 다운받는다. 
+위 명령어로 필요한 라이브러리를 다운받는다.
 
 
 #virtualenv 실행을 위한 메모
@@ -32,3 +32,4 @@
 #### Flask DEBUG환경 활성화
 `$ export FLASK_ENV=development`
 `$ export FLASK_ENV=development`
+
