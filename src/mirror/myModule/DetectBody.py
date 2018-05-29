@@ -15,6 +15,24 @@ class MyEncoder(json.JSONEncoder):
             return obj.tolist()
         return super(MyEncoder, self).default(obj)
 
+
+def rotateImage(image, angle):
+    (h,w) = image.shape[:2]
+    (cX, cY) = (w//2, h//2)
+
+    M = cv2.getRotationMatrix2D((cX, cY), -angle, 1.0)
+    cos = np.abs(M[0,0])
+    sin = np.abs(M[0,1])
+
+    nW = int((h*sin) + (w * cos))
+    nH = int((h * cos) + (w* sin))
+
+    M[0, 2] += (nW / 2) - cX
+    M[1, 2] += (nH / 2) - cY
+
+    return cv2.warpAffine(image, M, (nW, nH))
+
+
 def findBody():
     cap = cv2.VideoCapture(0) #return 0 or -1
     #(center, angle, scale)
@@ -28,10 +46,7 @@ def findBody():
     while cap.isOpened():
         ret, img = cap.read()
 
-        h,w = img.shape[:2]
-        center =  (w/2, h/2)
-        M = cv2.getRotationMatrix2D(center, 90, 1)
-        img = cv2.warpAffine(img, M, (h, w))
+        img = rotateImage(img, 90)
         #flip the image vertically
         img = cv2.flip(img, 1)
 
@@ -46,15 +61,12 @@ def findBody():
             imageGray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
             try:
                 lowerRect = lowerCascade.detectMultiScale(imageGray, scaleFactor=1.3, minNeighbors=1, minSize=(1,1))
-                print(lowerRect)
                 temp = []
                 temp2 = []
                 for x,y,w,h in lowerRect:
                     print("lower: %d, %d, %d, %d"%(x,y,w,h))
                     cv2.rectangle(img, (x,y), (x+w,y+h), (0,255,0),2) #green box 
-                    print("lowerRect: ", end="")
                     upperRect = upperCascade.detectMultiScale(imageGray, scaleFactor=1.3, minNeighbors=1, minSize=(1,1))
-                    print("upperRect: ", end="")
                     temp.append({'h':h,'w':w,'y':y,'x':x})
                     for lx,ly,lw,lh in upperRect:
                         print("upper: %d, %d, %d, %d"%(lx,ly,lw,lh))
@@ -62,9 +74,7 @@ def findBody():
                         temp2.append({'h':lh,'w':lw,'y':ly,'x':lx})
                 out['lower'] = temp
                 out['upper'] = temp2
-                print("lower: ", end= "")
                 print(out['lower'])
-                print("upper: ", end="")
                 print(out['upper'])
                 logging.info(json.dumps(out, cls=MyEncoder))
 
