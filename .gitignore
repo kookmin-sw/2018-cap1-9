@@ -3,4 +3,9 @@
 doc/
 
 src/mirror/server-venv
-src/mirror/__pycache__
+*/__pycache__
+
+#확장자
+*.pyc
+*.swp
+*.log

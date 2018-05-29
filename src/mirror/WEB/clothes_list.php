@@ -11,6 +11,7 @@ $dbname = "VT";
     die("Connection failed: " . mysqli_connect_error());
 }
 
+
 ?>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      <!DOCTYPE HTML>
 <html>
 	<head>
@@ -43,7 +44,7 @@ $dbname = "VT";
             </nav>
 					</header>
           <?php
-          $query2 = 'SELECT No,Color,Kind,Logo,Texture,Picture_Addr FROM Clothes_info';
+          $query2 = 'SELECT No,Color,Kind,Logo,Texture,Picture_Addr FROM Clothes_Info';
           $res2 =  mysqli_query($conn,$query2);
             ?>
 				<!-- Main -->
@@ -65,7 +66,7 @@ $dbname = "VT";
                  if($row['Texture'] == ''){
                    $row2['Texture'] = '-';
                  }
-                 echo"<p> Color :".$row2['Color']."  Type :".$row2['Kind']."  Texture : ".$row2['Texture']."<a href='select_clothe.php?No=".$row2['No']."&Picture_Addr=".$row2['Picture_Addr']."' style='padding-left:30%'><button>CHOOSE</button></a></p></article> ";
+                 echo"<p> Color :".$row2['Color']."  Type :".$row2['Kind']."  Texture : ".$row2['Texture']."<a href='select_clothe.php?No=".$row2['No']."&Picture_Addr=".$row2['Picture_Addr']."' style='padding-left:30%'><button >CHOOSE</button></a></p></article> ";
 
 						}
             ?>
