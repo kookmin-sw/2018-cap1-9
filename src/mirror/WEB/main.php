@@ -61,7 +61,7 @@ $sql2 = "UPDATE Coordinate SET show_addr = 'black' WHERE position = 'lower'";
               <header style="margin-top:-6%">
                 <h1>VT PROJECT</h1>
                 <p style="font-size:90%"><br>VT 프로젝트는 사용자가 가진 옷의 리스트들을 보여줍니다.<br>
-	   사용자가 원하는 옷을 선택하면 거울 위로 해당 옷이 나타납니다.<br><i>VT PROJECT</i>를 시작하려면 화살표를 눌러주세요.
+	   사용자가 원하는 옷을 선택하면 거울 위로 해당 옷이 나타납니다.<br><b><i>VT PROJECT</i></b>를 시작하려면 화살표를 눌러주세요.
                   </p>
               </header>
               <a href="VT_list.php" class="jumplink pic">
@@ -99,7 +99,17 @@ $sql2 = "UPDATE Coordinate SET show_addr = 'black' WHERE position = 'lower'";
               <header>
                 <h2>VT Manual</h2>
               </header>
-            </article>
+              <div >
+              <img src='images/p1.png' width='100%' alt=''>
+              <img src='images/p2.png' width='100%' alt=''>
+              <img src='images/p3.png' width='100%' alt=''>
+              <img src='images/p4.png' width='100%' alt=''>
+              <img src='images/p5.png' width='100%' alt=''>
+              <img src='images/p6.png' width='100%' alt=''>
+              <img src='images/p7.png' width='100%' alt=''>
+              <img src='images/p8.png' width='100%' alt=''>
+            </div>
+             </article>
 
         </div>
 
