@@ -22,6 +22,13 @@ $row = mysqli_fetch_array($res);
 $addr1 = $row2['show_addr'];
 $addr2 = $row['show_addr'];
 
+if($addr1 == NULL){
+  $addr1 = 'none';
+}
+if($addr2 == NULL){
+  $addr2 = 'none';
+}
+
 ?>
 
 
