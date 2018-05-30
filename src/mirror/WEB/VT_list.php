@@ -53,9 +53,9 @@ $dbname = "VT";
 									<?php
 			            while ($row2 = $res2->fetch_assoc())
                   {
-                    echo "<article class='style1'><span><img src='images/thumbs/".$row2['Picture_Addr'].".png' alt='' width='90%'/></span>";
-                    echo "<a href='select_clothe.php?No=".$row2['No']."&Picture_Addr=".$row2['Picture_Addr']."'><h2 style='color:black'>".$row2['Kind']."</h2><div class='content'>";
-                    echo "<p style='color:black'> Color :".$row2['Color']."  Type :".$row2['Kind']."</p></div> </a></article>";
+                    echo "<article class='style1'><div><img src='images/thumbs/".$row2['Picture_Addr'].".png' alt='' width='90%'/></div>";
+                    echo "<a href='select_clothe.php?No=".$row2['No']."&Picture_Addr=".$row2['Picture_Addr']."'><h2 style='color:black;margin-top:42%;padding-top:60%'>".$row2['Kind']."</h2><div style='color:black;'> Color :".$row2['Color']."  Type :".$row2['Kind']."</div><div class='content'>";
+                    echo "</div></a></article>";
 									}
 			            ?>
 							</section>
