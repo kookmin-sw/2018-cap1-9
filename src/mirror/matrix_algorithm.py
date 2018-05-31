@@ -137,5 +137,4 @@ else:
     newlist = sorted(topList,  key=lambda x: x[4],reverse=True)
 f = open("list.txt", 'w')
 for i in newlist:
-    if(i[4]>=5):
-        f.write(str(i[3])+'\n')
+    f.write(str(i[3])+'\n')
