@@ -1,4 +1,4 @@
-import pymysql
+import pymysql.cursors
 import sys
 import time
 
@@ -10,7 +10,6 @@ m2 = [[3, 4, 4, 3, 1, 4, 4, 3, 2, 2], [4, 2, 1, 4, 3, 4, 3, 3, 2, 2], [3, 3, 2, 
       [1, 1, 3, 2, 4, 3, 3, 1, 1, 2], [2, 3, 4, 3, 2, 4, 2, 2, 3, 2], [2, 2, 2, 2, 2, 2, 2, 2, 2, 2]]
 
 while(True):
-    now = open('showtext.txt', 'r')
     db = pymysql.connect(host="34.225.233.100",
                          user="root",
                          passwd="1234",
@@ -20,9 +19,14 @@ while(True):
     curs1 = db.cursor()
     curs2 = db.cursor()
     curs3 = db.cursor()
+    curs4 = db.cursor()
     sql1 = "select * from Clothes_Info"
     sql2 = "select * from Coordinate"
     sql3 = "select * from Recommend_List"
+    sql3_1 = "UPDATE Recommend_List SET addr = %s WHERE No=1"
+    sql3_2 = "UPDATE Recommend_List SET addr = %s WHERE No=2"
+    sql3_3 = "UPDATE Recommend_List SET addr = %s WHERE No=3"
+
 
     curs1.execute(sql1)
     curs2.execute(sql2)
@@ -45,7 +49,7 @@ while(True):
     def changeColorUp(color):
         if(color == "Green"):
             return 0
-        elif(color == "Blue"):
+        elif(color == "Blue" or color == 'Right-Blue'):
             return 1
         elif (color == "Yellow"):
             return 2
@@ -57,7 +61,7 @@ while(True):
             return 5
         elif (color == "Black" or color =='black'):
             return 6
-        elif (color == "Grey" or color == "darkgray" or color == "darkslategray" or color =="dimgrey"):
+        elif (color == "Grey" or color == "darkgray" or color == "darkslategray" or color =="dimgrey" or color == "silver"):
             return 7
         else:
             return 9
@@ -65,7 +69,7 @@ while(True):
     def changeKindUp(Kind):
         if (Kind == "Blouse"):
             return 0
-        elif (Kind == "Tshrit"):
+        elif (Kind == "T-Shrit"):
             return 1
         elif (Kind == "Shrit"):
             return 2
@@ -97,7 +101,7 @@ while(True):
             return 2
         elif (Kind == "Suit"):
             return 3
-        elif (Kind == "Mini Skirt"):
+        elif (Kind == "Mini-Skirt"):
             return 4
         else:
             return 5
@@ -105,17 +109,18 @@ while(True):
     chooseCloth = 0
     if(position[0][1] == 'null' or position[0][1] == 'null'):
         continue
-    if(selectClothe[0][5] == 'black' and selectClothe[1][5] == 'black'):
-        f = open("list.txt", 'w')
-        f.write("black\nblack\nblack\n")
-
-    if(position[0][1] == 'upper'):
+    if(position[0][1] == "upper"):
         chooseCloth = selectClothe[1][5]
         isuplow = 1
-    elif(position[0][1] == 'lower'):
+    elif(position[0][1] == "lower"):
         chooseCloth = selectClothe[0][5]
         isuplow = 0
-    else:
+
+    if (selectClothe[0][5] == 'black' and selectClothe[1][5] == 'black'):
+        curs4.execute(sql3_1, 'black')
+        curs4.execute(sql3_2, 'black')
+        curs4.execute(sql3_3, 'black')
+        db.commit()
         continue
 
     list3 = []
@@ -131,8 +136,8 @@ while(True):
             list1 = [i[0], changeColorDown(i[1]), changeKindDown(i[2]), i[3]]
             pantsList.append(list1)
     j = 0
-
-    select = int(chooseCloth)
+    if(chooseCloth != 'black'):
+        select = int(chooseCloth)
     if(isuplow == 1):
         k=0
         for i in topList:
@@ -157,9 +162,14 @@ while(True):
             topList[j].append(sum1)
             j += 1
         newlist = sorted(topList,  key=lambda x: x[4],reverse=True)
+    one = newlist[0][3]
+    two = newlist[1][3]
+    thr = newlist[2][3]
 
+    curs3.execute(sql3_1, one)
+    curs3.execute(sql3_2, two)
+    curs3.execute(sql3_3, thr)
 
+    a = curs3.fetchall()
 
-    f = open("list.txt", 'w')
-    for i in newlist:
-        f.write(str(i[3])+'\n')
+    db.commit()
