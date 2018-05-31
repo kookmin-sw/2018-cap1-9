@@ -10,7 +10,7 @@ m2 = [[3, 4, 4, 3, 1, 4, 4, 3, 2, 2], [4, 2, 1, 4, 3, 4, 3, 3, 2, 2], [3, 3, 2, 
       [1, 1, 3, 2, 4, 3, 3, 1, 1, 2], [2, 3, 4, 3, 2, 4, 2, 2, 3, 2], [2, 2, 2, 2, 2, 2, 2, 2, 2, 2]]
 
 while(True):
-
+    now = open('showtext.txt', 'r')
     db = pymysql.connect(host="34.225.233.100",
                          user="root",
                          passwd="1234",
@@ -22,20 +22,17 @@ while(True):
     curs3 = db.cursor()
     sql1 = "select * from Clothes_Info"
     sql2 = "select * from Coordinate"
-    sql3_1 = "UPDATE Recommend_List SET upper = %s WHERE No='1'"
-    sql3_2 = "UPDATE Recommend_List SET upper = %s WHERE No='2'"
-    sql3_3 = "UPDATE Recommend_List SET upper = %s WHERE No='3'"
-    sql3_4 = "UPDATE Recommend_List SET lower = %s WHERE No='1'"
-    sql3_5 = "UPDATE Recommend_List SET lower = %s WHERE No='2'"
-    sql3_6 = "UPDATE Recommend_List SET lower = %s WHERE No='3'"
+    sql3 = "select * from Recommend_List"
 
     curs1.execute(sql1)
     curs2.execute(sql2)
+    curs3.execute(sql3)
     rows = curs1.fetchall()
     selectClothe = curs2.fetchall()
+    position = curs3.fetchall()
 
 
-    if(selectClotheNo == selectClothe[0][5] or selectClotheNo == selectClothe[1][5]):
+    if(selectClotheNo == selectClothe[0][5] and selectClotheNo == selectClothe[1][5]):
         continue
 
     def summ2(list1, list2):
@@ -106,14 +103,20 @@ while(True):
             return 5
     isuplow = 0
     chooseCloth = 0
-    if(selectClothe[0][5] == 'null' or selectClothe[1][5] == 'null'):
+    if(position[0][1] == 'null' or position[0][1] == 'null'):
         continue
-    if(selectClothe[0][5] == None or selectClothe[0][5] == "black"):
+    if(selectClothe[0][5] == 'black' and selectClothe[1][5] == 'black'):
+        f = open("list.txt", 'w')
+        f.write("black\nblack\nblack\n")
+
+    if(position[0][1] == 'upper'):
         chooseCloth = selectClothe[1][5]
         isuplow = 1
-    else:
+    elif(position[0][1] == 'lower'):
         chooseCloth = selectClothe[0][5]
         isuplow = 0
+    else:
+        continue
 
     list3 = []
 
