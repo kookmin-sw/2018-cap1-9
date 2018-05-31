@@ -49,17 +49,23 @@ def main(photo_file):
         label4 = response['responses'][0]['labelAnnotations'][3]['description']
         label5 = response['responses'][0]['labelAnnotations'][4]['description']
         list = ['clothing', 'product', 'pink', 'white', 'blue', 'khaki', 'black', 'red']
-
+        label = label1
+        
         if label1 in list :
             label1 = 'null'
+            label = label2
         elif label2 in list :
             label2 = 'null'
+            label = label3
         elif label3 in list :
             label3 = 'null'
+            label = label4
         elif label4 in list :
             label4 = 'null'
+            label = label5
         elif label5 in list :
             label5 = 'null'
+            label = 'null'
             
         print label1
         print label2
@@ -67,14 +73,32 @@ def main(photo_file):
         print label4
         print label5
 
+        upper = ['jacket', 'shorts', 'active shorts', 'dress',
+                     'day dress', 'blouse', 'sleeve', 'collar', 'cardigan',
+                     'jumper', 'pullover', 'shirt', 'sweat-shirt', 'T-shirt', 'tshirts', 'tshirt', 'sweater']
+        if label1 in upper :
+            position = 'upper'
+        elif label2 in upper :
+            position = 'upper'
+        elif label3 in upper :
+            position = 'upper'
+        elif label4 in upper :
+            position = 'upper'
+        elif label5 in upper :
+            position = 'upper'
+        else :
+            position = 'lower'
+
+        print position
+            
         db = MySQLdb.connect(host="34.225.233.100",
-                     user="root",
-                     passwd="1234",
-                     db="VT")
+                                          user="root",
+                                          passwd="1234",
+                                          db="VT")
         cur = db.cursor()
-
-        cur.execute("SELECT * FROM Clothes_Info")
-
+        
+        cur.execute("""INSERT INTO Clothes_Info(Color, Kind, Picture_Addr, position) VALUES (%s, %s, %s, %s)""", (closest_name, label, photo_file.replace('.png', ''), position))
+        db.commit()
         for row in cur.fetchall():
             print(row[1])
     
@@ -98,7 +122,7 @@ def get_colour_name(requested_color):
     except ValueError:
         closest_name = closest_colour(requested_color)
     return closest_name
-       
+
 if __name__ == '__main__':
         parser = argparse.ArgumentParser()
         parser.add_argument('image_file', help = 'The image you\'d like to label.')

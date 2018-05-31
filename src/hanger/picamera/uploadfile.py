@@ -2,12 +2,12 @@ import sys, os, glob
 from boto.s3.connection import S3Connection
 from boto.s3.key import Key
 
-AWS_ACCESS = ''
-AWS_SECRET = ''
+AWS_ACCESS = 'AKIAI6RCJX5WEYMBNMVA'
+AWS_SECRET = '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'
 
 conn = S3Connection(AWS_ACCESS, AWS_SECRET)
 bucket = conn.get_bucket('clothes-image')
-directory = '/home/pi/Desktop/picamera'
+directory = '/home/pi/Desktop'
 
 def getFiles(dir):
     return [os.path.basename(x) for x in glob.glob(str(dir)+'*.jpg')]

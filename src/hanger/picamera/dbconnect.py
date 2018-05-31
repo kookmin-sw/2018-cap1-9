@@ -10,6 +10,6 @@ cur = db.cursor()
 cur.execute("SELECT * FROM Clothes_Info")
 
 for row in cur.fetchall():
-    print(row[1])
-    
+    print(row)
+
 db.close()
