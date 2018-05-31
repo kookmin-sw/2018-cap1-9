@@ -87,12 +87,14 @@ def changeKindDown(Kind):
         return 4
     else:
         return 5
-
+isuplow = 0
 chooseCloth = 0
 if(selectClothe[0][5] == None or selectClothe[0][5] == "black"):
     chooseCloth = selectClothe[1][5]
+    isuplow = 1
 else:
     chooseCloth = selectClothe[0][5]
+    isuplow = 0
 
 list3 = []
 
@@ -100,23 +102,36 @@ topList = []
 pantsList = []
 
 for i in rows:
-    if(i[0] <= 9):
+    if(i[4] == "upper"):
         list1 = [i[0], changeColorUp(i[1]), changeKindUp(i[2]), i[3]]
         topList.append(list1)
     else:
         list1 = [i[0], changeColorDown(i[1]), changeKindDown(i[2]), i[3]]
         pantsList.append(list1)
 j = 0
+
 select = int(chooseCloth)
-if(int(chooseCloth) <= 9):
+if(isuplow == 1):
+    k=0
+    for i in topList:
+        if(i[3] == chooseCloth):
+            select = i[0]
+            break
+        k += 1
     for i in pantsList:
-        sum1 = summ2(topList[select], i)
+        sum1 = summ2(topList[k], i)
         pantsList[j].append(sum1)
         j += 1
     newlist = sorted(pantsList, key=lambda x:x[4],reverse=True)
 else:
+    k = 0
+    for i in pantsList:
+        if(i[3] == chooseCloth):
+            select = i[0]
+            break
+        k += 1
     for i in topList:
-        sum1 = summ2(i, pantsList[select-10])
+        sum1 = summ2(i, pantsList[k])
         topList[j].append(sum1)
         j += 1
     newlist = sorted(topList,  key=lambda x: x[4],reverse=True)
