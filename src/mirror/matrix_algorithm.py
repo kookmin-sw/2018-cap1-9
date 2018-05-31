@@ -2,32 +2,41 @@ import pymysql
 import sys
 import time
 
-db = pymysql.connect(host="34.225.233.100",
+
+selectClotheNo = 0
+
+m1 = [[1, 4, 1, 1, 2], [4, 3, 3, 3, 2], [3, 4, 2, 1, 2], [4, 1, 3, 4, 2], [2, 3, 2, 1, 2], [2, 2, 2, 2, 2]]
+m2 = [[3, 4, 4, 3, 1, 4, 4, 3, 2, 2], [4, 2, 1, 4, 3, 4, 3, 3, 2, 2], [3, 3, 2, 2, 4, 4, 2, 3, 1, 2],
+      [1, 1, 3, 2, 4, 3, 3, 1, 1, 2], [2, 3, 4, 3, 2, 4, 2, 2, 3, 2], [2, 2, 2, 2, 2, 2, 2, 2, 2, 2]]
+
+while(True):
+
+    db = pymysql.connect(host="34.225.233.100",
                          user="root",
                          passwd="1234",
                          db="VT",
-                         port = 3306)
-while(True):
+                         port=3306)
+
     curs1 = db.cursor()
     curs2 = db.cursor()
     curs3 = db.cursor()
     sql1 = "select * from Clothes_Info"
-    sql2= "select * from Coordinate"
+    sql2 = "select * from Coordinate"
     sql3_1 = "UPDATE Recommend_List SET upper = %s WHERE No='1'"
     sql3_2 = "UPDATE Recommend_List SET upper = %s WHERE No='2'"
     sql3_3 = "UPDATE Recommend_List SET upper = %s WHERE No='3'"
     sql3_4 = "UPDATE Recommend_List SET lower = %s WHERE No='1'"
     sql3_5 = "UPDATE Recommend_List SET lower = %s WHERE No='2'"
     sql3_6 = "UPDATE Recommend_List SET lower = %s WHERE No='3'"
+
     curs1.execute(sql1)
     curs2.execute(sql2)
     rows = curs1.fetchall()
     selectClothe = curs2.fetchall()
 
-    m1 = [[1, 4, 1, 1,2], [4, 3, 3, 3,2], [3, 4, 2, 1,2], [4, 1, 3, 4,2], [2, 3, 2, 1,2],[2,2,2,2,2]]
-    m2 = [[3, 4, 4, 3, 1, 4, 4, 3, 2,2], [4, 2, 1, 4, 3, 4, 3, 3, 2,2], [3, 3, 2,	2, 4, 4, 2,	3, 1,2],
-          [1, 1, 3, 2, 4,	3,	3,	1, 1,2], [2,	3, 4, 3, 2,	4,	2,	2, 3,2],[2,2,2,2,2,2,2,2,2,2]]
 
+    if(selectClotheNo == selectClothe[0][5] or selectClotheNo == selectClothe[1][5]):
+        continue
 
     def summ2(list1, list2):
         a = list1[1]
