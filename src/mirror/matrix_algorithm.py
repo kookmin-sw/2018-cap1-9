@@ -8,11 +8,17 @@ db = pymysql.connect(host="34.225.233.100",
                          db="VT",
                          port = 3306)
 while(True):
-    time.sleep(1)
     curs1 = db.cursor()
     curs2 = db.cursor()
+    curs3 = db.cursor()
     sql1 = "select * from Clothes_Info"
     sql2= "select * from Coordinate"
+    sql3_1 = "UPDATE Recommend_List SET upper = %s WHERE No='1'"
+    sql3_2 = "UPDATE Recommend_List SET upper = %s WHERE No='2'"
+    sql3_3 = "UPDATE Recommend_List SET upper = %s WHERE No='3'"
+    sql3_4 = "UPDATE Recommend_List SET lower = %s WHERE No='1'"
+    sql3_5 = "UPDATE Recommend_List SET lower = %s WHERE No='2'"
+    sql3_6 = "UPDATE Recommend_List SET lower = %s WHERE No='3'"
     curs1.execute(sql1)
     curs2.execute(sql2)
     rows = curs1.fetchall()
@@ -139,6 +145,9 @@ while(True):
             topList[j].append(sum1)
             j += 1
         newlist = sorted(topList,  key=lambda x: x[4],reverse=True)
+
+
+
     f = open("list.txt", 'w')
     for i in newlist:
         f.write(str(i[3])+'\n')
