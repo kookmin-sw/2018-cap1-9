@@ -10,9 +10,16 @@ if(!$conn){
   die("connetction failed:" . mysqli_connect_error());
   }
 
-$No = addslashes($_GET["No"]);
+$upper = addslashes($_GET["upper"]);
+$lower = addslashes($_GET["lower"]);
 
-$sql = "UPDATE Clothes_Info SET IsUpdate ='1' WHERE No = $No";
+$query = 'SELECT count(No) FROM Clothes_Log';
+  $res = mysqli_query($conn,$query);
+        $row1 = $res -> fetch_array();
+      $total_num = $row1[0]+1;
+$date =date("Y-m-d/H:i");
+
+$sql = "INSERT INTO Clothes_Log (No,upper,lower,date) VALUES ('$total_num+1','$upper','$lower','$date')";
 if (mysqli_query($conn,$sql)){
   }
   else{ echo "Error: " .$sql . "<br>" . mysqli_error($conn);
@@ -24,7 +31,7 @@ mysqli_close($conn);
 <html>
  <head>
     <script type="text/javascript">
-       location.href='clothes_list.php';
+       location.href='main.php';
     </script>
  </head>
 
